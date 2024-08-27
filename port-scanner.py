@@ -45,9 +45,12 @@ def start_scan(host_entry, start_port_entry, end_port_entry, output):
     try:
         ipaddress.ip_address(host)
     except ValueError:
-        output.insert(END, "Invalid IP address.\n")
-        print("Invalid IP address.")
-        return
+        try:
+            socket.gethostbyname(host)
+        except socket.gaierror:
+            output.insert(END, "Invalid IP address or domain.\n")
+            print("Invalid IP address or domain.")
+            return
 
     try:
         start_port = int(start_port_entry.get())
