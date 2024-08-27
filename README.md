@@ -12,8 +12,8 @@ Este é um simples scanner de portas TCP desenvolvido em Python com uma interfac
 1. Clone o repositório:
 
     ```bash
-    git clone https://github.com/seu-usuario/tcp-port-scanner.git
-    cd tcp-port-scanner
+    git clone https://github.com/thomaschiari/port-scanner.git
+    cd port-scanner
     ```
 
 2. Certifique-se de ter o Python 3 instalado. Você pode verificar a versão instalada executando:
