@@ -21,11 +21,11 @@ def scan_port(host, port, output):
         with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
             s.settimeout(1)
             result = s.connect_ex((host, port))
+            service = KNOWN_PORTS.get(port, "Unknown Service")
             if result == 0:
-                service = KNOWN_PORTS.get(port, "Unknown Service")
                 output.insert(END, f"Port {port} is open: service {service} \n")
             else:
-                output.insert(END, f"Port {port} is closed \n")
+                output.insert(END, f"Port {port} is closed: service {service} \n")
     except Exception as e:
         output.insert(END, f"Error: {str(e)} on port {port} \n")
 
